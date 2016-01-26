@@ -16,7 +16,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'keyboard-event.js',
-      'spec/keyboard-event.spec.js'
+      'spec/**/*.js'
     ],
 
 
