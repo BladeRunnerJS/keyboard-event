@@ -1,0 +1,27 @@
+{
+  "name": "keyboard-event",
+  "version": "0.0.1",
+  "description": "keyboard-event polyfills the KeyboardEvent constructor for IE8 and IE9+, and also polyfills Chrome as it uses keyIdentifier instead of key.",
+  "main": "keyboard-event.js",
+  "scripts": {
+    "test": "karma start karma-saucelabs.conf.js --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BladeRunnerJS/keyboard-event.git"
+  },
+  "author": "Dominic Chambers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BladeRunnerJS/keyboard-event/issues"
+  },
+  "homepage": "https://github.com/BladeRunnerJS/keyboard-event#readme",
+  "devDependencies": {
+    "env-check": "^0.0.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.6"
+  }
+}
