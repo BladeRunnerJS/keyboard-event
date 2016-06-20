@@ -20,7 +20,7 @@ IE8KeyboardEvent.type = 'IE8';
 // DL3KeyboardEvent
 var DL3KeyboardEvent = function(eventType, args) {
   // chrome polyfill
-  if(args && args.key) {
+  if (args && args.key) {
     args.keyIdentifier = args.key;
   }
 
@@ -32,7 +32,7 @@ var DL3KeyboardEvent = function(eventType, args) {
     args.key, args.location, modifiers, args.repeat, args.locale);
 
   // chrome polyfill
-  if(evt.keyIdentifier) {
+  if (evt.keyIdentifier && evt.key !== evt.keyIdentifier) {
     evt.key = evt.keyIdentifier;
   }
 
@@ -44,14 +44,14 @@ DL3KeyboardEvent.prototype.constructor = DL3KeyboardEvent;
 // DL4KeyboardEvent
 var DL4KeyboardEvent = function(eventType, args) {
   // chrome polyfill
-  if(args && args.key) {
+  if (args && args.key) {
     args.keyIdentifier = args.key;
   }
 
   var evt = new NativeKeyboardEvent(eventType, args);
 
   // chrome polyfill
-  if(evt.keyIdentifier) {
+  if (evt.keyIdentifier && evt.key !== evt.keyIdentifier) {
     evt.key = evt.keyIdentifier;
   }
 
@@ -61,16 +61,16 @@ DL4KeyboardEvent.prototype = Object.create(NativeKeyboardEvent.prototype);
 DL4KeyboardEvent.prototype.constructor = DL4KeyboardEvent;
 
 // Polyfilling
-if(document.implementation.hasFeature('KeyboardEvent', '4.0')) {
+if (document.implementation.hasFeature('KeyboardEvent', '4.0')) {
   KeyboardEvent = DL4KeyboardEvent;
 }
-else if(document.implementation.hasFeature('KeyboardEvent', '3.0')) {
+else if (document.implementation.hasFeature('KeyboardEvent', '3.0')) {
   KeyboardEvent = DL3KeyboardEvent;
 }
-else if(document.createEventObject) {
+else if (document.createEventObject) {
   KeyboardEvent = IE8KeyboardEvent;
 }
-else if(navigator.userAgent == 'PhantomJS') {
+else if (navigator.userAgent == 'PhantomJS') {
   // seems to support DL3 keyboard events even though it doesn't claim to
   KeyboardEvent = DL3KeyboardEvent;
 }
@@ -101,19 +101,19 @@ function defaultsTo(defaultValue, actualValue) {
 function modifiersList(args) {
   var modifiers = [];
 
-  if(args.ctrlKey) {
+  if (args.ctrlKey) {
     modifiers.push('Control');
   }
-  if(args.shiftKey) {
+  if (args.shiftKey) {
     modifiers.push('Shift');
   }
-  if(args.altKey) {
+  if (args.altKey) {
     modifiers.push('Alt');
   }
-  if(args.metaKey) {
+  if (args.metaKey) {
     modifiers.push('Meta');
   }
-  if(args.ctrlKey && args.altKey) {
+  if (args.ctrlKey && args.altKey) {
     modifiers.push('AltGraph');
   }
 
