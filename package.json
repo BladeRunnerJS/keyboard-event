@@ -1,6 +1,6 @@
 {
   "name": "keyboard-event",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "keyboard-event polyfills the KeyboardEvent constructor for IE8 and IE9+, and also polyfills Chrome as it uses keyIdentifier instead of key.",
   "main": "keyboard-event.js",
   "scripts": {
